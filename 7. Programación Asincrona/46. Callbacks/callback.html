@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callbacks</title>
+</head>
+<body>
+    <script>
+        // Las Callbacks son el primer mecanismo que tien e JS para manejar la aincronia
+        // Son funciones que se ejecutan despues de otra
+
+        function cuadradoCallback(value, callback) {
+            setTimeout(() => {
+                callback(value, value * value)
+            }, 0 | Math.random() * 1000);
+        }
+
+        cuadradoCallback(0, (value, result) => {
+            console.log("Inicia CallBack");
+            console.log(`Callback: ${value}, ${result}`);
+            cuadradoCallback(1, (value, result) => {
+                console.log(`Callback: ${value}, ${result}`);
+                cuadradoCallback(2, (value, result) => {
+                    console.log(`Callback: ${value}, ${result}`);
+                    cuadradoCallback(3, (value, result) => {
+                        console.log(`Callback: ${value}, ${result}`);
+                        cuadradoCallback(4, (value, result) => {
+                            console.log(`Callback: ${value}, ${result}`);
+                            cuadradoCallback(5, (value, result) => {
+                                console.log(`Callback: ${value}, ${result}`);
+                                console.log("Fin Callback");
+                                console.log("Callback Hell !!!!!😈🤟");
+                                console.log("http://callbackhell.com/");
+                            });
+                        });
+                    });
+                });
+            });
+        });
+        // Callbacks anidadas forma el callback hell
+
+
+    </script>
+</body>
+</html>
